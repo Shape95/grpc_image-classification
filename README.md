@@ -13,7 +13,7 @@ python -m grpc.tools.protoc --proto_path=./ --python_out=./ --grpc_python_out=./
 pip install -r requirements.txt
 ```
 
-[동작확인]
+[동작 확인]
 
 ```bash
 # Server-side
