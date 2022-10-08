@@ -1,0 +1,23 @@
+# Create  .mar
+torch-model-archiver --model-name resnet_scripted_quantized --version 1.0 --serialized-file script/resnet_scripted_quantized.pt --handler resnet.py --export-path deploy/model-store -f
+
+# server를 핸들러로 변경 시 추가
+# --extra-files ./classification_pb2_grpc.py,./classification_pb2.py,server.py 
+
+# Create docker image
+docker build -f Dockerfile -t server-docker .
+
+
+# torchserve 설치
+일반
+pip install torchserve torch-model-archiver torch-workflow-archiver
+
+아나콘다
+conda install -c pytorch torchserve torch-model-archiver torch-workflow-archiver
+
+도커
+docker pull pytorch/torchserve
+
+# Docker Run!!
+docker run -d -p 6010:6010 server-docker
+

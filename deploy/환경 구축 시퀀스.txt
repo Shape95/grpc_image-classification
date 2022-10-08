@@ -1,0 +1,20 @@
+개발 환경 : Anaconda
+언어 : python 3.8
+
+
+@ 실행 순서 (anaconda 새로운 환경 기준)
+
+1 라이브러리 다운로드
+pip install -r requirements.txt
+
+2 torchserve 다운로드
+conda install -c pytorch torchserve torch-model-archiver torch-workflow-archiver
+
+3 Dockerfile build -> image 생성
+docker build -f Dockerfile -t server-docker .
+
+4 Docker 실행 (포트 포워딩 6010 : 6010)
+docker run -d -p 6010:6010 server-docker
+
+5 client.py 로 테스트
+python client.py

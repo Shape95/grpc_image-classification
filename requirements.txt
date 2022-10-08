@@ -1,0 +1,8 @@
+grpcio
+grpcio-tools
+opencv-python
+pillow
+numpy
+torch
+pandas
+torchvision
