@@ -1,9 +1,3 @@
-"""
-    CIFAR pretrained ResNet sample
-    Author: Mr. Balsdnim
-    Date:   1st Dec. 2021
-"""
-
 import numpy as np
 import torch
 import logging
